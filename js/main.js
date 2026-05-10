@@ -4,6 +4,29 @@ window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 50);
 });
 
+// Menu hamburguer
+const mobileBtn = document.querySelector('.navbar-mobile-btn');
+const navbarLinks = document.querySelector('.navbar-links');
+
+mobileBtn.addEventListener('click', () => {
+  navbarLinks.classList.toggle('open');
+  mobileBtn.textContent = navbarLinks.classList.contains('open') ? '✕' : '☰';
+});
+
+navbarLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navbarLinks.classList.remove('open');
+    mobileBtn.textContent = '☰';
+  });
+});
+
+document.addEventListener('click', (e) => {
+  if (!navbar.contains(e.target)) {
+    navbarLinks.classList.remove('open');
+    mobileBtn.textContent = '☰';
+  }
+});
+
 // Smooth reveal on scroll
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
