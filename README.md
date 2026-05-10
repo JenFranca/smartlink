@@ -1,6 +1,6 @@
-# 🌐 Smart Link Internet Fibra — Site Institucional
+# 🌐 SmartLink Internet Fibra — Site Institucional
 
-Site institucional desenvolvido para a **Smart Link Internet Fibra**, provedor de internet fibra óptica. Projeto focado em apresentar os planos, diferenciais da empresa e facilitar o contato com clientes.
+Site institucional desenvolvido para a **SmartLink Internet Fibra**, provedor de internet fibra óptica. Projeto focado em apresentar os planos, diferenciais da empresa e facilitar o contato com clientes.
 
 🔗 **[Ver site ao vivo](https://jenfranca.github.io/smartlink)**
 
