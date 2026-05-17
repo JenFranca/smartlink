@@ -17,6 +17,7 @@
 html { scroll-behavior: smooth; scroll-padding-top: 56px; }
 
 section[id] { scroll-margin-top: 56px; }
+#diferenciais, #planos { min-height: calc(100vh - 56px); }
 
 body {
   font-family: var(--font);
@@ -363,7 +364,7 @@ body {
   padding: 28px;
   display: flex;
   gap: 18px;
-  align-items: flex-start;
+  align-items: center;
   transition: all 0.3s;
   cursor: default;
   position: relative;
@@ -423,8 +424,8 @@ body {
 
 .card-diferencial p {
   color: var(--text-muted);
-  font-size: 0.95rem;
-  line-height: 1.7;
+  font-size: 0.82rem;
+  line-height: 1.6;
 }
 
 /* ========================
@@ -861,7 +862,7 @@ body {
 footer {
   background: var(--dark-2);
   border-top: 1px solid var(--border);
-  padding: 60px 80px 0;
+  padding: 20px 80px 0;
 }
 
 .footer-grid {
@@ -869,7 +870,7 @@ footer {
   grid-template-columns: 1fr 1.6fr 1fr 1fr;
   column-gap: 60px;
   row-gap: 0;
-  padding-bottom: 48px;
+  padding-bottom: 20px;
   align-items: center;
 }
 
