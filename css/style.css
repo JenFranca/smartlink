@@ -983,7 +983,7 @@ footer {
 @media (max-width: 768px) {
   .navbar-links, .navbar-cta { display: none; }
   .navbar-mobile-btn { display: block; }
-  .hero { padding: 65px 16px 20px; }
+  .hero { padding: 48px 16px 20px; }
   .hero-badge { margin-bottom: 4px; font-size: 0.75rem; padding: 5px 14px; }
   .hero-logo { max-width: 210px; margin-bottom: 10px; }
   .hero h1 { font-size: 1.9rem; margin-bottom: 10px; }
