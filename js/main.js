@@ -27,6 +27,15 @@ document.addEventListener('click', (e) => {
   }
 });
 
+// Acordeão diferenciais no mobile
+document.querySelectorAll('.card-diferencial').forEach(card => {
+  card.addEventListener('click', () => {
+    const isExpanded = card.classList.contains('expanded');
+    document.querySelectorAll('.card-diferencial').forEach(c => c.classList.remove('expanded'));
+    if (!isExpanded) card.classList.add('expanded');
+  });
+});
+
 // Smooth reveal on scroll
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
