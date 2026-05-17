@@ -988,6 +988,7 @@ footer {
   .hero-logo { max-width: 210px; margin-bottom: 10px; }
   .hero h1 { font-size: 1.9rem; margin-bottom: 10px; }
   .hero p { font-size: 0.95rem; margin-bottom: 16px; }
+  .btn-primary { padding: 11px 28px; font-size: 0.88rem; }
   .hero-stats { gap: 16px; margin-top: 16px; padding-top: 14px; }
   .hero-stat strong { font-size: 1.6rem; }
   .hero-stat span { font-size: 0.75rem; }
