@@ -1035,7 +1035,15 @@ footer {
 @media (max-width: 480px) {
   .navbar { padding: 16px 20px; }
   .hero-stats { flex-direction: row; justify-content: center; gap: 16px; }
-  .section { padding: 60px 16px; }
+  .section { padding: 50px 16px; }
+  .section-header { margin-bottom: 32px; }
+  .section-header h2 { font-size: 1.8rem; }
+  .section-header p { font-size: 1rem; }
+  .card-diferencial { padding: 18px; gap: 14px; }
+  .card-diferencial .icon { width: 54px; height: 54px; }
+  .card-diferencial .icon i { font-size: 1.4rem; }
+  .card-diferencial h3 { font-size: 1rem; }
+  .card-diferencial p { font-size: 0.88rem; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-col--logo .footer-logo-img { width: 160px; }
 }
