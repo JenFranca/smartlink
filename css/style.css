@@ -31,7 +31,7 @@ body {
   top: 0; left: 0; right: 0;
   z-index: 1000;
   padding: 0 40px;
-  height: 80px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -60,6 +60,8 @@ body {
   display: flex;
   gap: 40px;
   list-style: none;
+  flex: 1;
+  justify-content: center;
 }
 
 .navbar-links a {
@@ -240,26 +242,26 @@ body {
 
 .btn-primary {
   padding: 15px 36px;
-  background: var(--primary);
-  color: #050810;
+  background: #22783b;
+  color: #ffffff;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 800;
   font-size: 0.95rem;
   transition: all 0.3s;
-  border: 2px solid var(--primary);
-  box-shadow: 0 0 20px rgba(0,200,255,0.4);
+  border: 2px solid #22783b;
+  box-shadow: 0 0 20px rgba(34,120,59,0.4);
   animation: pulse-btn 2.5s infinite;
 }
 
 @keyframes pulse-btn {
-  0%, 100% { box-shadow: 0 0 20px rgba(0,200,255,0.4); }
-  50% { box-shadow: 0 0 40px rgba(0,200,255,0.8), 0 0 60px rgba(0,200,255,0.3); }
+  0%, 100% { box-shadow: 0 0 20px rgba(34,120,59,0.4); }
+  50% { box-shadow: 0 0 40px rgba(34,120,59,0.8), 0 0 60px rgba(34,120,59,0.3); }
 }
 
 .btn-primary:hover {
   background: transparent;
-  color: var(--primary);
+  color: #22783b;
   transform: translateY(-2px);
 }
 
@@ -980,7 +982,10 @@ footer {
 @media (max-width: 768px) {
   .navbar-links, .navbar-cta { display: none; }
   .navbar-mobile-btn { display: block; }
-  .hero-stats { gap: 30px; }
+  .hero { padding: 90px 20px 40px; }
+  .hero-logo { max-width: 260px; }
+  .hero-stats { gap: 30px; margin-top: 40px; padding-top: 28px; }
+  .section { padding: 60px 20px; }
   .adicionais-wrapper { flex-direction: column; }
   .adicional-box { flex-direction: column; text-align: center; }
 
@@ -1022,8 +1027,9 @@ footer {
 
 @media (max-width: 480px) {
   .navbar { padding: 16px 20px; }
+  .hero { padding: 80px 16px 40px; }
   .hero-stats { flex-direction: column; gap: 20px; }
-  .section { padding: 70px 16px; }
+  .section { padding: 60px 16px; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-col--logo .footer-logo-img { width: 160px; }
 }
