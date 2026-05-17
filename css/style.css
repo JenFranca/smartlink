@@ -983,9 +983,12 @@ footer {
 @media (max-width: 768px) {
   .navbar-links, .navbar-cta { display: none; }
   .navbar-mobile-btn { display: block; }
-  .hero { padding: 90px 20px 40px; }
-  .hero-logo { max-width: 260px; }
-  .hero-stats { gap: 30px; margin-top: 40px; padding-top: 28px; }
+  .hero { padding: 70px 20px 24px; }
+  .hero-badge { margin-bottom: 6px; }
+  .hero-logo { max-width: 200px; margin-bottom: 12px; }
+  .hero h1 { font-size: 1.8rem; margin-bottom: 12px; }
+  .hero p { font-size: 1rem; margin-bottom: 20px; }
+  .hero-stats { gap: 30px; margin-top: 24px; padding-top: 20px; }
   .section { padding: 60px 20px; }
   .adicionais-wrapper { flex-direction: column; }
   .adicional-box { flex-direction: column; text-align: center; }
