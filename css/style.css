@@ -983,12 +983,14 @@ footer {
 @media (max-width: 768px) {
   .navbar-links, .navbar-cta { display: none; }
   .navbar-mobile-btn { display: block; }
-  .hero { padding: 70px 20px 24px; }
-  .hero-badge { margin-bottom: 6px; }
-  .hero-logo { max-width: 200px; margin-bottom: 12px; }
-  .hero h1 { font-size: 1.8rem; margin-bottom: 12px; }
-  .hero p { font-size: 1rem; margin-bottom: 20px; }
-  .hero-stats { gap: 30px; margin-top: 24px; padding-top: 20px; }
+  .hero { padding: 65px 16px 20px; }
+  .hero-badge { margin-bottom: 4px; font-size: 0.75rem; padding: 5px 14px; }
+  .hero-logo { max-width: 210px; margin-bottom: 10px; }
+  .hero h1 { font-size: 1.9rem; margin-bottom: 10px; }
+  .hero p { font-size: 0.95rem; margin-bottom: 16px; }
+  .hero-stats { gap: 16px; margin-top: 16px; padding-top: 14px; }
+  .hero-stat strong { font-size: 1.6rem; }
+  .hero-stat span { font-size: 0.75rem; }
   .section { padding: 60px 20px; }
   .adicionais-wrapper { flex-direction: column; }
   .adicional-box { flex-direction: column; text-align: center; }
@@ -1031,8 +1033,7 @@ footer {
 
 @media (max-width: 480px) {
   .navbar { padding: 16px 20px; }
-  .hero { padding: 80px 16px 40px; }
-  .hero-stats { flex-direction: column; gap: 20px; }
+  .hero-stats { flex-direction: row; justify-content: center; gap: 16px; }
   .section { padding: 60px 16px; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-col--logo .footer-logo-img { width: 160px; }
