@@ -1039,11 +1039,12 @@ footer {
   .section-header { margin-bottom: 32px; }
   .section-header h2 { font-size: 1.8rem; }
   .section-header p { font-size: 1rem; }
-  .card-diferencial { padding: 14px; gap: 12px; }
-  .card-diferencial .icon { width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0; }
-  .card-diferencial .icon i { font-size: 1.1rem; }
-  .card-diferencial h3 { font-size: 0.92rem; margin-bottom: 4px; }
-  .card-diferencial p { font-size: 0.8rem; line-height: 1.5; }
+  .diferenciais-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .card-diferencial { padding: 16px 12px; gap: 10px; flex-direction: column; align-items: center; text-align: center; }
+  .card-diferencial .icon { width: 48px; height: 48px; border-radius: 12px; }
+  .card-diferencial .icon i { font-size: 1.2rem; }
+  .card-diferencial h3 { font-size: 0.88rem; margin-bottom: 0; }
+  .card-diferencial p { display: none; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-col--logo .footer-logo-img { width: 160px; }
 }
