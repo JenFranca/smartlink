@@ -1,9 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="12" fill="#050810"/>
-  <g fill="none" stroke="#00c8ff" stroke-linecap="round">
-    <path d="M16 30 C22 22 42 22 48 30" stroke-width="4.5"/>
-    <path d="M20 36 C24 30 40 30 44 36" stroke-width="4.5"/>
-    <path d="M24 42 C27 37 37 37 40 42" stroke-width="4.5"/>
+  <!-- Fundo -->
+  <rect width="64" height="64" rx="12" fill="#0d1526"/>
+
+  <!-- Elipse azul/verde (igual ao logo) -->
+  <ellipse cx="34" cy="36" rx="26" ry="14" fill="none" stroke="#4bafd4" stroke-width="1.8" transform="rotate(-12 34 36)"/>
+  <ellipse cx="34" cy="36" rx="25" ry="13" fill="none" stroke="#3a7d24" stroke-width="1.2" transform="rotate(-12 34 36)" opacity="0.85"/>
+
+  <!-- Arcos WiFi cinza (igual ao logo) -->
+  <g fill="none" stroke="#555" stroke-linecap="round">
+    <path d="M 21,42 A 13,13 0 0 1 41,42" stroke-width="4.5"/>
+    <path d="M 14,34 A 21,21 0 0 1 48,34" stroke-width="4.5"/>
+    <path d="M 7,26 A 31,31 0 0 1 55,26" stroke-width="4.5"/>
   </g>
-  <circle cx="32" cy="50" r="3.5" fill="#00ff88"/>
+
+  <!-- Ponto inferior com brilho azul (corrente/link) -->
+  <circle cx="31" cy="50" r="5" fill="#333"/>
+  <circle cx="31" cy="50" r="2.8" fill="#4bafd4"/>
 </svg>
