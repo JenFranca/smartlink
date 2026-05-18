@@ -985,7 +985,7 @@ footer {
 .neon-divider {
   width: 100%;
   height: 40px;
-  background: var(--dark);
+  background: var(--dark-2);
   display: block;
   line-height: 0;
   overflow: hidden;
@@ -1050,6 +1050,7 @@ footer {
   .hero-stat strong { font-size: 1.6rem; }
   .hero-stat span { font-size: 0.75rem; }
   .section { padding: 60px 20px; }
+  .planos-grid { grid-template-columns: 1fr; }
   .adicionais-wrapper { flex-direction: column; }
   .adicional-box { flex-direction: column; text-align: center; }
 
@@ -1081,12 +1082,23 @@ footer {
     border-bottom: none;
   }
 
-  footer { padding: 48px 24px 0; }
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-  .footer-col--logo { grid-column: 1 / -1; justify-content: flex-start; padding-left: 0; }
+  footer { padding: 16px 20px 0; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 16px; padding-bottom: 12px; }
+  .footer-col--logo { display: none; }
+  .footer-col--sobre { display: none; }
   .footer-col--links { padding-left: 0; }
   .footer-col--contato { padding-left: 0; }
-  .footer-col--sobre { padding-left: 0; }
+  .footer-col h5 { font-size: 0.72rem; margin-bottom: 8px; }
+  .footer-col ul li { margin-bottom: 5px; }
+  .footer-col ul li a { font-size: 0.8rem; }
+  .contato-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .card-contato { padding: 16px 8px; border-radius: 12px; }
+  .card-contato .contato-icon { width: 40px; height: 40px; margin-bottom: 8px; }
+  .card-contato h4 { font-size: 0.65rem; margin-bottom: 2px; }
+  .card-contato p { font-size: 0.7rem; }
+  .frase-texto { font-size: 1.15rem !important; line-height: 1.5; }
+  .frase-aspas { font-size: 5rem; margin-bottom: 8px; }
+  .section-frase { padding: 30px 20px; }
 }
 
 @media (max-width: 480px) {
@@ -1104,6 +1116,5 @@ footer {
   .card-diferencial p { display: none; }
   .card-diferencial.expanded { grid-column: 1 / -1; flex-direction: row; align-items: flex-start; text-align: left; border-color: var(--border-glow); }
   .card-diferencial.expanded p { display: block; font-size: 0.82rem; line-height: 1.55; margin-top: 4px; }
-  .footer-grid { grid-template-columns: 1fr; }
-  .footer-col--logo .footer-logo-img { width: 160px; }
+  .footer-col--logo .footer-logo-img { width: 100px; }
 }
