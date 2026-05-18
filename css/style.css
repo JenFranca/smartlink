@@ -129,6 +129,8 @@ body {
   box-shadow: 0 0 30px rgba(0,200,255,0.6);
 }
 
+.navbar-cta-mobile-item { display: none; }
+
 .navbar-mobile-btn {
   display: none;
   background: none;
@@ -1069,10 +1071,25 @@ footer {
     z-index: 999;
   }
 
+  .navbar-cta-mobile-item { display: block; padding: 8px 16px 12px; }
+  .navbar-cta-mobile-item .navbar-cta-mobile-link {
+    display: block;
+    text-align: center;
+    padding: 8px 16px;
+    background: var(--primary);
+    color: #050810 !important;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 0.78rem;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    box-shadow: 0 0 14px rgba(0,200,255,0.4);
+  }
+
   .navbar-links.open li a {
     display: block;
-    padding: 14px 28px;
-    font-size: 1rem;
+    padding: 10px 20px;
+    font-size: 0.82rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     border-bottom: 1px solid rgba(0,200,255,0.08);
