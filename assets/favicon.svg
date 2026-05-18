@@ -2,10 +2,6 @@
   <!-- Fundo -->
   <rect width="64" height="64" rx="12" fill="#0d1526"/>
 
-  <!-- Elipse azul/verde (igual ao logo) -->
-  <ellipse cx="34" cy="36" rx="26" ry="14" fill="none" stroke="#4bafd4" stroke-width="1.8" transform="rotate(-12 34 36)"/>
-  <ellipse cx="34" cy="36" rx="25" ry="13" fill="none" stroke="#3a7d24" stroke-width="1.2" transform="rotate(-12 34 36)" opacity="0.85"/>
-
   <!-- Arcos WiFi cinza (igual ao logo) -->
   <g fill="none" stroke="#555" stroke-linecap="round">
     <path d="M 21,42 A 13,13 0 0 1 41,42" stroke-width="4.5"/>
