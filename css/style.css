@@ -1054,7 +1054,7 @@ footer {
   .section { padding: 60px 20px; }
   .planos-grid { grid-template-columns: 1fr; }
   .adicionais-wrapper { flex-direction: column; }
-  .adicional-box { flex-direction: column; text-align: center; }
+  .adicional-box { flex-direction: row; align-items: center; justify-content: space-between; }
 
   .navbar-links.open {
     display: flex;
@@ -1131,7 +1131,7 @@ footer {
   .card-diferencial .icon i { font-size: 1.2rem; }
   .card-diferencial h3 { font-size: 0.88rem; margin-bottom: 0; }
   .card-diferencial p { display: none; }
-  .card-diferencial.expanded { grid-column: 1 / -1; flex-direction: row; align-items: flex-start; text-align: left; border-color: var(--border-glow); }
+  .card-diferencial.expanded { grid-column: 1 / -1; flex-direction: row; align-items: center; text-align: left; border-color: var(--border-glow); }
   .card-diferencial.expanded p { display: block; font-size: 0.82rem; line-height: 1.55; margin-top: 4px; }
   .footer-col--logo .footer-logo-img { width: 100px; }
 }
