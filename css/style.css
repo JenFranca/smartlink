@@ -1223,13 +1223,11 @@ footer {
   .section-header { margin-bottom: 32px; }
   .section-header h2 { font-size: 1.8rem; }
   .section-header p { font-size: 1rem; }
-  .diferenciais-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-  .card-diferencial { padding: 16px 12px; gap: 10px; flex-direction: column; align-items: center; text-align: center; cursor: pointer; }
+  .diferenciais-grid { grid-template-columns: 1fr; gap: 12px; }
+  .card-diferencial { padding: 16px 12px; gap: 10px; flex-direction: row; align-items: center; text-align: left; }
   .card-diferencial .icon { width: 48px; height: 48px; border-radius: 12px; }
   .card-diferencial .icon i { font-size: 1.2rem; }
   .card-diferencial h3 { font-size: 0.88rem; margin-bottom: 0; }
-  .card-diferencial p { display: none; }
-  .card-diferencial.expanded { grid-column: 1 / -1; flex-direction: row; align-items: center; text-align: left; border-color: var(--border-glow); }
-  .card-diferencial.expanded p { display: block; font-size: 0.82rem; line-height: 1.55; margin-top: 4px; }
+  .card-diferencial p { font-size: 0.82rem; line-height: 1.55; margin-top: 4px; }
   .footer-col--logo .footer-logo-img { width: 100px; }
 }
