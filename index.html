@@ -7,16 +7,23 @@
   <title>SmartLink - Internet Fibra</title>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="apple-touch-icon" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/temas/base-suave.css" />
+  <link rel="stylesheet" href="css/temas/misto.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
 
   <!-- NAVBAR -->
   <nav class="navbar">
+    <a href="#" class="navbar-logo"><img src="assets/logo-fundo-escuro.png" alt="SmartLink" /></a>
     <ul class="navbar-links">
       <li><a href="#diferenciais">Diferenciais</a></li>
       <li><a href="#planos">Planos</a></li>
+      <li><a href="#como-funciona">Como Funciona</a></li>
       <li><a href="#contato">Contato</a></li>
       <li class="navbar-cta-mobile-item"><a href="https://smartlinktelecom.sgp.net.br/accounts/central/login" target="_blank" class="navbar-cta-mobile-link">Central do Assinante</a></li>
     </ul>
@@ -30,23 +37,26 @@
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
     <div class="hero-content">
-      <div class="hero-badge">📡 Internet Fibra Óptica</div>
-      <img src="assets/logo.png" alt="SmartLink" class="hero-logo" />
+      <div class="hero-badge"><i class="fa-solid fa-tower-broadcast"></i> Internet Fibra Óptica</div>
+      <img src="assets/logo-fundo-escuro.png" alt="SmartLink" class="hero-logo" />
       <h1>Navegue, Faça Streaming e Trabalhe <em>Sem Interrupções</em></h1>
-      <p>Internet rápida, estável e confiável para sua casa ou empresa. Planos a partir de R$ 89,90/mês.</p>
+      <p>Internet rápida, estável e confiável para sua casa ou empresa.</p>
       <div class="hero-buttons">
         <a href="#planos" class="btn-primary">Ver Planos</a>
       </div>
       <div class="hero-stats">
         <div class="hero-stat">
+          <i class="fa-solid fa-gauge-high"></i>
           <strong class="counter" data-target="600" data-suffix="Mbps">0</strong>
           <span>Velocidade máxima</span>
         </div>
         <div class="hero-stat">
+          <i class="fa-solid fa-signal"></i>
           <strong class="counter" data-target="99" data-suffix="%">0</strong>
           <span>Uptime garantido</span>
         </div>
         <div class="hero-stat">
+          <i class="fa-solid fa-headset"></i>
           <strong class="counter" data-target="24" data-suffix="h">0</strong>
           <span>Suporte disponível</span>
         </div>
@@ -129,23 +139,34 @@
       <div class="planos-grid">
 
         <div class="card-plano">
+          <div class="plano-sinal" data-nivel="1" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
           <div class="plano-velocidade">200 <span>mb</span></div>
           <p class="plano-tipo">Fibra Óptica</p>
-          <div class="plano-preco">R$ 89,90 <small>/mês</small></div>
+          <div class="plano-usos">
+            <span title="Redes sociais"><i class="fa-solid fa-mobile-screen"></i></span>
+            <span title="Vídeos"><i class="fa-solid fa-circle-play"></i></span>
+            <span title="Chamadas"><i class="fa-solid fa-comments"></i></span>
+          </div>
           <hr class="plano-divider" />
           <ul class="plano-features">
             <li>Wi-Fi grátis incluso</li>
             <li>Redes sociais, vídeos e chamadas</li>
             <li>Suporte técnico humanizado</li>
           </ul>
-          <a href="https://wa.me/5512997633785?text=Olá!%20Quero%20contratar%20o%20plano%20200mb%20por%20R%2489%2C90" target="_blank" class="btn-plano">Contratar Agora</a>
+          <a href="https://wa.me/5512997633785?text=Olá!%20Quero%20contratar%20o%20plano%20200mb" target="_blank" class="btn-plano">Contratar Agora</a>
         </div>
 
         <div class="card-plano popular">
           <div class="badge-popular">⭐ MAIS POPULAR</div>
+          <div class="plano-sinal" data-nivel="3" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
           <div class="plano-velocidade">400 <span>mb</span></div>
           <p class="plano-tipo">Fibra Óptica</p>
-          <div class="plano-preco">R$ 99,90 <small>/mês</small></div>
+          <div class="plano-usos">
+            <span title="Home office"><i class="fa-solid fa-laptop"></i></span>
+            <span title="Videochamadas"><i class="fa-solid fa-video"></i></span>
+            <span title="Jogos online"><i class="fa-solid fa-gamepad"></i></span>
+            <span title="Vários dispositivos"><i class="fa-solid fa-users"></i></span>
+          </div>
           <hr class="plano-divider" />
           <ul class="plano-features">
             <li>Wi-Fi grátis incluso</li>
@@ -153,27 +174,39 @@
             <li>Jogos online e videochamadas</li>
             <li>Suporte Prioritário humanizado</li>
           </ul>
-          <a href="https://wa.me/5512997633785?text=Olá!%20Quero%20contratar%20o%20plano%20400mb%20por%20R%2499%2C90" target="_blank" class="btn-plano solid">Contratar Agora</a>
+          <a href="https://wa.me/5512997633785?text=Olá!%20Quero%20contratar%20o%20plano%20400mb" target="_blank" class="btn-plano solid">Contratar Agora</a>
         </div>
 
         <div class="card-plano">
+          <div class="plano-sinal" data-nivel="4" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
           <div class="plano-velocidade">600 <span>mb</span></div>
           <p class="plano-tipo">Fibra Óptica</p>
-          <div class="plano-preco">R$ 119,90 <small>/mês</small></div>
+          <div class="plano-usos">
+            <span title="Streaming 4K"><i class="fa-solid fa-tv"></i></span>
+            <span title="Games"><i class="fa-solid fa-gamepad"></i></span>
+            <span title="Criação de conteúdo"><i class="fa-solid fa-camera"></i></span>
+            <span title="Wi-Fi 6"><i class="fa-solid fa-wifi"></i></span>
+          </div>
           <hr class="plano-divider" />
           <ul class="plano-features">
             <li>Wi-Fi 6 grátis incluso</li>
             <li>Streaming em 4K sem travamentos</li>
+            <li>Home office sem preocupações</li>
             <li>Para gamers e criadores de conteúdo</li>
             <li>Suporte Prioritário humanizado</li>
           </ul>
-          <a href="https://wa.me/5512997633785?text=Olá!%20Quero%20contratar%20o%20plano%20600mb%20por%20R%24119%2C90" target="_blank" class="btn-plano">Contratar Agora</a>
+          <a href="https://wa.me/5512997633785?text=Olá!%20Quero%20contratar%20o%20plano%20600mb" target="_blank" class="btn-plano">Contratar Agora</a>
         </div>
 
         <div class="card-plano mesh">
+          <div class="plano-sinal" data-nivel="2" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
           <div class="plano-velocidade">Mesh</div>
           <p class="plano-tipo">300mb · Fibra Óptica</p>
-          <div class="plano-preco">R$ 139,90 <small>/mês</small></div>
+          <div class="plano-usos">
+            <span title="Casas amplas"><i class="fa-solid fa-house"></i></span>
+            <span title="Vários andares"><i class="fa-solid fa-stairs"></i></span>
+            <span title="Cobertura Mesh"><i class="fa-solid fa-wifi"></i></span>
+          </div>
           <hr class="plano-divider" />
           <ul class="plano-features">
             <li>Fibra óptica 300 Megas</li>
@@ -183,7 +216,7 @@
             <li>Maior cobertura e estabilidade</li>
             <li>Atendimento humanizado 24h</li>
           </ul>
-          <a href="https://wa.me/5512997633785?text=Olá!%20Quero%20contratar%20o%20Plano%20Mesh%20por%20R%24139%2C90" target="_blank" class="btn-plano">Contratar Agora</a>
+          <a href="https://wa.me/5512997633785?text=Olá!%20Quero%20contratar%20o%20Plano%20Mesh" target="_blank" class="btn-plano">Contratar Agora</a>
         </div>
 
       </div>
@@ -218,6 +251,60 @@
     </div>
   </section>
 
+  <!-- DIVISOR -->
+  <div class="neon-divider">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="0,0 1440,0 0,60" fill="#080d1a"/>
+      <polygon points="0,60 1440,0 1440,60" fill="#080d1a"/>
+      <line x1="0" y1="60" x2="1440" y2="0" stroke="#00c8ff" stroke-width="1.5"/>
+    </svg>
+  </div>
+
+  <!-- COMO FUNCIONA -->
+  <section class="section" id="como-funciona">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Simples e rápido</span>
+        <h2>Como Funciona</h2>
+        <p>Da consulta à internet funcionando na sua casa em três passos.</p>
+      </div>
+
+      <div class="passos">
+        <div class="passos-grid">
+          <div class="passos-fibra" aria-hidden="true"></div>
+          <div class="passo">
+            <div class="passo-icone"><i class="fa-solid fa-map-location-dot"></i><span>1</span></div>
+            <h4>Consulte</h4>
+            <p>Informe seu endereço e confirme a disponibilidade na sua região.</p>
+          </div>
+          <div class="passo">
+            <div class="passo-icone"><i class="fa-solid fa-screwdriver-wrench"></i><span>2</span></div>
+            <h4>Instalação</h4>
+            <p>Nossa equipe técnica vai até você e instala tudo.</p>
+          </div>
+          <div class="passo">
+            <div class="passo-icone"><i class="fa-solid fa-wifi"></i><span>3</span></div>
+            <h4>Conectado</h4>
+            <p>Pronto! Internet de fibra para toda a família.</p>
+          </div>
+        </div>
+      </div>
+
+      <form class="cep-box" id="cep-form" novalidate>
+        <div class="cep-texto">
+          <strong><span class="planos-nota-dot"></span> Valores personalizados para o seu endereço</strong>
+          <span>Digite seu CEP e receba a proposta pelo WhatsApp.</span>
+        </div>
+        <div class="cep-campos">
+          <input type="text" id="cep-input" inputmode="numeric" autocomplete="postal-code" placeholder="00000-000" maxlength="9" aria-label="CEP" />
+          <input type="text" id="cep-numero" inputmode="numeric" placeholder="Nº" maxlength="8" aria-label="Número" />
+          <button type="submit"><i class="fa-brands fa-whatsapp"></i> Verificar</button>
+        </div>
+        <p class="cep-endereco" id="cep-endereco" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
 
   <!-- DIVISOR -->
   <div class="neon-divider neon-divider--reverse">
@@ -232,7 +319,7 @@
     <canvas id="speedlines"></canvas>
     <div class="container">
       <div class="frase-bloco">
-        <span class="frase-aspas">"</span>
+        <span class="frase-aspas">&ldquo;</span>
         <p class="frase-texto">Internet que não te deixa na mão,<br>porque o seu tempo <em>vale mais.</em></p>
         <span class="frase-assinatura">— SmartLink Internet Fibra</span>
       </div>
@@ -254,6 +341,7 @@
         <span class="section-tag">Fale conosco</span>
         <h2>Estamos Online</h2>
         <p>Nossa equipe está pronta para te atender e tirar todas as suas dúvidas.</p>
+        <div class="contato-status"><span class="contato-status-dot"></span> Atendimento humanizado pelo WhatsApp</div>
       </div>
       <div class="contato-grid">
         <a href="https://wa.me/5512997633785?text=Olá!%20Gostaria%20de%20conhecer%20os%20planos%20da%20SmartLink." target="_blank" class="card-contato">
@@ -307,7 +395,7 @@
     <div class="footer-grid">
 
       <div class="footer-col footer-col--logo">
-        <img src="assets/logo.png" alt="SmartLink" class="footer-logo-img" />
+        <img src="assets/logo-fundo-escuro.png" alt="SmartLink" class="footer-logo-img" />
       </div>
 
       <div class="footer-col footer-col--sobre">

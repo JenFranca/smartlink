@@ -36,22 +36,100 @@ document.querySelectorAll('.card-diferencial').forEach(card => {
   });
 });
 
-// Smooth reveal on scroll
+// Revelação ao rolar, em sequência (um card depois do outro)
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-    }
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    el.classList.add('visivel');
+    observer.unobserve(el);
+    // remove o atraso depois de aparecer, para não atrasar o hover
+    setTimeout(() => { el.style.transitionDelay = ''; }, 900 + parseFloat(el.style.transitionDelay || 0) * 1000);
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.card-diferencial, .card-plano, .card-contato, .card-depoimento').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(30px)';
-  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+document.querySelectorAll('.card-diferencial, .card-plano, .card-contato, .card-depoimento, .passo').forEach(el => {
+  const irmaos = Array.from(el.parentElement.children).filter(c => c.matches('.card-diferencial, .card-plano, .card-contato, .card-depoimento, .passo'));
+  el.classList.add('reveal');
+  el.style.transitionDelay = `${irmaos.indexOf(el) * 0.09}s`;
   observer.observe(el);
 });
+
+// Menu: destaca a seção visível
+const secoesMenu = Array.from(navbarLinks.querySelectorAll('a[href^="#"]'))
+  .map(a => ({ link: a, secao: document.querySelector(a.getAttribute('href')) }))
+  .filter(s => s.secao);
+
+const menuObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    secoesMenu.forEach(s => s.link.classList.toggle('ativo', s.secao === entry.target));
+  });
+}, { rootMargin: '-45% 0px -50% 0px' });
+secoesMenu.forEach(s => menuObserver.observe(s.secao));
+
+// Consulta de CEP → WhatsApp
+const cepForm = document.getElementById('cep-form');
+if (cepForm) {
+  const cepInput = document.getElementById('cep-input');
+  const numeroInput = document.getElementById('cep-numero');
+  const enderecoEl = document.getElementById('cep-endereco');
+  let endereco = null;
+
+  cepInput.addEventListener('input', async () => {
+    const digitos = cepInput.value.replace(/\D/g, '').slice(0, 8);
+    cepInput.value = digitos.length > 5 ? `${digitos.slice(0, 5)}-${digitos.slice(5)}` : digitos;
+    endereco = null;
+    enderecoEl.textContent = '';
+    enderecoEl.classList.remove('erro');
+    if (digitos.length !== 8) return;
+
+    enderecoEl.textContent = 'Buscando endereço...';
+    try {
+      const resp = await fetch(`https://viacep.com.br/ws/${digitos}/json/`);
+      const dados = await resp.json();
+      if (dados.erro) throw new Error('CEP não encontrado');
+      endereco = dados;
+      enderecoEl.textContent = [dados.logradouro, dados.bairro, `${dados.localidade}/${dados.uf}`].filter(Boolean).join(', ');
+    } catch {
+      enderecoEl.textContent = 'Não encontramos esse CEP, mas pode enviar assim mesmo que verificamos para você.';
+      enderecoEl.classList.add('erro');
+    }
+  });
+
+  cepForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const cep = cepInput.value.trim();
+    if (cep.replace(/\D/g, '').length !== 8) {
+      enderecoEl.textContent = 'Digite um CEP com 8 números.';
+      enderecoEl.classList.add('erro');
+      cepInput.focus();
+      return;
+    }
+    const numero = numeroInput.value.trim();
+    let local = `CEP ${cep}`;
+    if (endereco) {
+      local = [endereco.logradouro && `${endereco.logradouro}${numero ? `, nº ${numero}` : ''}`, endereco.bairro, `${endereco.localidade}/${endereco.uf}`, `CEP ${cep}`].filter(Boolean).join(' - ');
+    } else if (numero) {
+      local += `, nº ${numero}`;
+    }
+    const msg = `Olá! Gostaria de verificar se a SmartLink atende no meu endereço: ${local}.`;
+    window.open(`https://wa.me/5512997633785?text=${encodeURIComponent(msg)}`, '_blank');
+  });
+}
+
+// Pulso de luz percorrendo as linhas dos divisores (fibra)
+document.querySelectorAll('.neon-divider svg line').forEach(line => {
+  const pulso = line.cloneNode();
+  pulso.classList.add('fibra-pulso');
+  pulso.removeAttribute('stroke');
+  line.after(pulso);
+});
+
+// Cores da rede animada (cada tema pode definir --net-1 / --net-2 como "r,g,b")
+const rootStyle = getComputedStyle(document.documentElement);
+const NET_1 = rootStyle.getPropertyValue('--net-1').trim() || '0,200,255';
+const NET_2 = rootStyle.getPropertyValue('--net-2').trim() || '0,255,136';
 
 // Canvas de fibra óptica
 const canvas = document.getElementById('particles');
@@ -72,7 +150,7 @@ const particles = Array.from({ length: 80 }, () => ({
   dx: (Math.random() - 0.5) * 0.5,
   dy: (Math.random() - 0.5) * 0.5,
   alpha: Math.random() * 0.6 + 0.1,
-  color: Math.random() > 0.7 ? '0,255,136' : '0,200,255',
+  color: Math.random() > 0.7 ? NET_2 : NET_1,
 }));
 
 // Linhas de fibra
@@ -84,7 +162,7 @@ const fibers = Array.from({ length: 6 }, () => ({
   speed: Math.random() * 0.008 + 0.003,
   alpha: Math.random() * 0.3 + 0.1,
   width: Math.random() * 1.5 + 0.5,
-  color: Math.random() > 0.5 ? '0,200,255' : '0,255,136',
+  color: Math.random() > 0.5 ? NET_1 : NET_2,
   progress: Math.random(),
 }));
 
@@ -99,7 +177,7 @@ function drawScene() {
         ctx.beginPath();
         ctx.moveTo(p.x, p.y);
         ctx.lineTo(q.x, q.y);
-        ctx.strokeStyle = `rgba(0,200,255,${0.08 * (1 - dist / 100)})`;
+        ctx.strokeStyle = `rgba(${NET_1},${0.08 * (1 - dist / 100)})`;
         ctx.lineWidth = 0.5;
         ctx.stroke();
       }
@@ -175,7 +253,7 @@ function createNetNode(isHub) {
     dx: (Math.random() - 0.5) * (isHub ? 0.2 : 0.4),
     dy: (Math.random() - 0.5) * (isHub ? 0.2 : 0.4),
     r: isHub ? Math.random() * 2 + 3 : Math.random() * 1.2 + 0.8,
-    color: Math.random() > 0.5 ? '0,200,255' : '0,255,136',
+    color: Math.random() > 0.5 ? NET_1 : NET_2,
     phase: Math.random() * Math.PI * 2,
     isHub,
   };
@@ -209,7 +287,7 @@ function drawSpeedLines() {
       speedCtx.beginPath();
       speedCtx.moveTo(a.x, a.y);
       speedCtx.lineTo(b.x, b.y);
-      speedCtx.strokeStyle = `rgba(0,200,255,${alpha})`;
+      speedCtx.strokeStyle = `rgba(${NET_1},${alpha})`;
       speedCtx.lineWidth = 0.6;
       speedCtx.stroke();
       if (Math.random() < (a.isHub || b.isHub ? 0.0015 : 0.0003)) {
@@ -217,7 +295,7 @@ function drawSpeedLines() {
         netPulses.push({
           from: fwd ? a : b, to: fwd ? b : a,
           t: 0, speed: Math.random() * 0.012 + 0.007,
-          color: Math.random() > 0.5 ? '0,200,255' : '0,255,136',
+          color: Math.random() > 0.5 ? NET_1 : NET_2,
           size: Math.random() * 1.5 + 1,
         });
       }

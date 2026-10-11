@@ -1,0 +1,90 @@
+/* ========================
+   BASE SUAVE — remove o neon e usa as variáveis de cada tema
+   (carregar depois de style.css e antes do arquivo do tema)
+======================== */
+
+/* Sem brilhos */
+.hero h1, .hero h1 em, .hero-stat strong, .plano-velocidade,
+.card-plano.mesh .plano-velocidade, .adicional-preco,
+.depoimento-stars, .plano-features li::before { text-shadow: none; }
+.hero-logo, .footer-col .footer-logo-img { filter: none; }
+.hero-badge, .navbar-cta, .card-diferencial .icon, .badge-popular,
+.depoimento-avatar, .navbar-cta-mobile-item .navbar-cta-mobile-link { box-shadow: none; }
+
+/* Navbar */
+.navbar { background: var(--nav-bg); }
+.navbar.scrolled { background: var(--nav-bg-solid); box-shadow: var(--shadow-sm); }
+.navbar-cta, .navbar-cta-mobile-item .navbar-cta-mobile-link { color: var(--on-primary) !important; }
+.navbar-cta:hover { background: transparent; color: var(--primary) !important; box-shadow: none; }
+
+/* Hero */
+.hero-bg {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, var(--hero-glow) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 80% 80%, var(--hero-glow-2) 0%, transparent 60%);
+}
+.hero-grid {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+}
+#particles, #speedlines { opacity: var(--canvas-opacity); }
+.hero-badge { background: var(--primary-soft); border-color: var(--border-glow); }
+.btn-primary {
+  background: var(--secondary);
+  border-color: var(--secondary);
+  color: #fff;
+  box-shadow: var(--shadow-md);
+  animation: none;
+}
+.btn-primary:hover { background: transparent; color: var(--secondary); }
+
+/* Cards: sombra macia no lugar do glow */
+.card-diferencial, .card-plano, .adicional-box, .card-contato, .card-depoimento { box-shadow: var(--shadow-sm); }
+.card-diferencial:hover, .card-plano:hover, .card-contato:hover, .card-depoimento:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-glow);
+}
+.card-diferencial .icon { background: var(--primary-soft); border-color: var(--border); }
+.card-diferencial:hover .icon { background: var(--primary-soft-2); box-shadow: none; }
+.card-contato:hover .contato-icon { box-shadow: none; }
+
+/* Planos */
+.card-plano.popular { border-color: var(--secondary); background: var(--dark-3); box-shadow: var(--shadow-md); }
+.badge-popular { background: var(--secondary); color: #fff; }
+.card-plano.mesh { border-color: var(--mesh-border); background: var(--dark-3); box-shadow: var(--shadow-sm); }
+.card-plano.mesh:hover { border-color: var(--mesh); box-shadow: var(--shadow-lg); }
+.card-plano.mesh .plano-velocidade { color: var(--mesh); }
+.card-plano.mesh .btn-plano { border-color: var(--mesh); color: var(--mesh); }
+.card-plano.mesh .btn-plano:hover { background: var(--mesh); color: #fff; box-shadow: none; }
+.plano-features li { border-bottom-color: var(--line-soft); }
+.btn-plano:hover, .btn-plano.solid { color: var(--on-primary); box-shadow: none; }
+.btn-plano.solid:hover { background: transparent; color: var(--primary); }
+.planos-nota { box-shadow: var(--shadow-sm); }
+.planos-nota strong { color: var(--on-primary); }
+.adicional-consultar:hover { color: var(--on-primary); }
+
+.depoimento-avatar { color: #fff; }
+.whatsapp-float { animation: none; box-shadow: 0 6px 20px rgba(37,211,102,0.35); }
+
+/* Fundos das seções e divisores */
+#diferenciais { background: var(--sec-dif); }
+#planos { background: var(--sec-planos); }
+.section-frase { background: var(--sec-frase); }
+#contato { background: var(--sec-contato); }
+footer { background: var(--sec-footer); }
+
+.neon-divider svg { filter: none; }
+.neon-divider .fibra-pulso { stroke: var(--primary); }
+.neon-divider line { stroke: var(--divider-line); }
+#diferenciais + .neon-divider polygon:nth-of-type(1) { fill: var(--sec-dif); }
+#diferenciais + .neon-divider polygon:nth-of-type(2) { fill: var(--sec-planos); }
+#planos + .neon-divider polygon:nth-of-type(1) { fill: var(--sec-planos); }
+#planos + .neon-divider polygon:nth-of-type(2) { fill: var(--sec-como); }
+#como-funciona { background: var(--sec-como); }
+#como-funciona + .neon-divider { background: var(--sec-como); }
+#como-funciona + .neon-divider polygon { fill: var(--sec-frase); }
+.section-frase + .neon-divider { background: var(--sec-frase); }
+.section-frase + .neon-divider polygon { fill: var(--sec-contato); }
+#contato + .neon-divider { background: var(--sec-contato); }
+#contato + .neon-divider polygon { fill: var(--sec-footer); }
