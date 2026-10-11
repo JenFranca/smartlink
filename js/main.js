@@ -39,8 +39,8 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.card-diferencial, .card-plano, .card-contato, .card-depoimento, .passo').forEach(el => {
-  const irmaos = Array.from(el.parentElement.children).filter(c => c.matches('.card-diferencial, .card-plano, .card-contato, .card-depoimento, .passo'));
+document.querySelectorAll('.card-diferencial, .planos-destaque, .card-tec, .card-contato, .card-depoimento, .passo').forEach(el => {
+  const irmaos = Array.from(el.parentElement.children).filter(c => c.matches('.card-diferencial, .planos-destaque, .card-tec, .card-contato, .card-depoimento, .passo'));
   el.classList.add('reveal');
   el.style.transitionDelay = `${irmaos.indexOf(el) * 0.09}s`;
   observer.observe(el);
@@ -104,7 +104,7 @@ if (cepForm) {
     } else if (numero) {
       local += `, nº ${numero}`;
     }
-    const msg = `Olá! Gostaria de verificar se a SmartLink atende no meu endereço: ${local}.`;
+    const msg = `Olá! Gostaria de conhecer os planos disponíveis no meu endereço: ${local}.`;
     window.open(`https://wa.me/5512997633785?text=${encodeURIComponent(msg)}`, '_blank');
   });
 }
@@ -366,73 +366,3 @@ const counterObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
-
-// Planos em carrossel no celular: começa no "Mais Popular", passa sozinho
-// e pausa quando a pessoa mexe
-const planosGrid = document.querySelector('.planos-grid');
-if (planosGrid) {
-  const TEMPO_PLANO = 4000;
-  const cards = Array.from(planosGrid.querySelectorAll('.card-plano'));
-  const pontos = document.createElement('div');
-  pontos.className = 'planos-pontos';
-  pontos.style.setProperty('--tempo-plano', `${TEMPO_PLANO}ms`);
-  planosGrid.after(pontos);
-
-  const celular = window.matchMedia('(max-width: 768px)');
-  const poucoMovimento = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let atual = -1;
-  let visivel = false;
-  let pausadoAte = 0;
-  let timer = null;
-
-  const centralizar = (card, suave) => {
-    const esquerda = card.offsetLeft - (planosGrid.clientWidth - card.offsetWidth) / 2;
-    planosGrid.scrollTo({ left: esquerda, behavior: suave ? 'smooth' : 'auto' });
-  };
-
-  const podeRodar = () => celular.matches && !poucoMovimento.matches && visivel && Date.now() >= pausadoAte;
-
-  const agendar = () => {
-    clearTimeout(timer);
-    const rodar = podeRodar();
-    // reinicia a barrinha do plano em foco
-    pontos.classList.remove('rodando');
-    if (!rodar) {
-      if (celular.matches && visivel) timer = setTimeout(agendar, Math.max(pausadoAte - Date.now(), 0) + 50);
-      return;
-    }
-    void pontos.offsetWidth;
-    pontos.classList.add('rodando');
-    timer = setTimeout(() => centralizar(cards[(atual + 1) % cards.length], true), TEMPO_PLANO);
-  };
-
-  const pausar = () => { pausadoAte = Date.now() + 8000; agendar(); };
-
-  cards.forEach((card, i) => {
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.setAttribute('aria-label', `Ver plano ${i + 1}`);
-    btn.addEventListener('click', () => { pausar(); centralizar(card, true); });
-    pontos.appendChild(btn);
-  });
-
-  const marcarAtivo = () => {
-    const meio = planosGrid.scrollLeft + planosGrid.clientWidth / 2;
-    const distancia = card => Math.abs(card.offsetLeft + card.offsetWidth / 2 - meio);
-    const maisPerto = cards.reduce((melhor, card, i) => (distancia(card) < distancia(cards[melhor]) ? i : melhor), 0);
-    if (maisPerto === atual) return;
-    atual = maisPerto;
-    cards.forEach((card, i) => card.classList.toggle('foco', i === atual));
-    pontos.querySelectorAll('button').forEach((b, i) => b.classList.toggle('ativo', i === atual));
-    agendar();
-  };
-  planosGrid.addEventListener('scroll', marcarAtivo, { passive: true });
-  ['pointerdown', 'touchstart', 'wheel'].forEach(ev => planosGrid.addEventListener(ev, pausar, { passive: true }));
-
-  // só passa sozinho enquanto os planos estão na tela
-  new IntersectionObserver(([entry]) => { visivel = entry.isIntersecting; agendar(); }, { threshold: 0.5 })
-    .observe(planosGrid);
-
-  if (celular.matches) centralizar(cards.find(c => c.classList.contains('popular')) || cards[0], false);
-  marcarAtivo();
-}

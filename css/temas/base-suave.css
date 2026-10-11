@@ -79,11 +79,8 @@ footer { background: var(--sec-footer); }
 .neon-divider line { stroke: var(--divider-line); }
 #diferenciais + .neon-divider polygon:nth-of-type(1) { fill: var(--sec-dif); }
 #diferenciais + .neon-divider polygon:nth-of-type(2) { fill: var(--sec-planos); }
-#planos + .neon-divider polygon:nth-of-type(1) { fill: var(--sec-planos); }
-#planos + .neon-divider polygon:nth-of-type(2) { fill: var(--sec-como); }
-#como-funciona { background: var(--sec-como); }
-#como-funciona + .neon-divider { background: var(--sec-como); }
-#como-funciona + .neon-divider polygon { fill: var(--sec-frase); }
+#planos + .neon-divider { background: var(--sec-planos); }
+#planos + .neon-divider polygon { fill: var(--sec-frase); }
 .section-frase + .neon-divider { background: var(--sec-frase); }
 .section-frase + .neon-divider polygon { fill: var(--sec-contato); }
 #contato + .neon-divider { background: var(--sec-contato); }
