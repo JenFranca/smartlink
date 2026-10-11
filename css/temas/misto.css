@@ -460,3 +460,57 @@ body { background: var(--sec-dif); }
 /* Revelação em sequência (estado inicial; deve ficar no fim do arquivo) */
 .reveal { transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s, border-color 0.3s; }
 .reveal:not(.visivel) { opacity: 0; transform: translateY(30px); }
+
+/* ========================
+   CELULAR — tamanhos compactos
+======================== */
+@media (max-width: 768px) {
+  .navbar-logo img, .navbar.scrolled .navbar-logo img { height: 36px; }
+
+  /* Topo */
+  .hero { min-height: auto; padding: 84px 16px 64px; }
+  .hero::after { height: 40px; }
+  .hero-badge { margin-bottom: 22px; }
+  .hero-logo { max-width: 200px; margin-bottom: 22px; }
+  .hero h1 { font-size: 1.75rem; }
+  .hero p { font-size: 0.95rem; }
+  .hero-stats { flex-wrap: nowrap; gap: 8px; margin-top: 24px; }
+  .hero-stat {
+    flex: 1;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    row-gap: 2px;
+    padding: 10px 6px;
+  }
+  .hero-stat i { grid-row: auto; width: 28px; height: 28px; font-size: 0.8rem; margin-bottom: 4px; }
+  .hero-stat strong { font-size: 1.1rem; }
+  .hero-stat span { font-size: 0.62rem; }
+
+  /* Seções */
+  .section { padding: 48px 16px; }
+  .section-header { margin-bottom: 28px; }
+  .section-header h2 { font-size: 1.7rem; }
+  .section-header p { font-size: 0.95rem; line-height: 1.6; }
+
+  /* Planos */
+  #planos .section-header { margin-bottom: 36px; }
+  .planos-grid { gap: 20px; }
+  .card-plano { padding: 22px 18px 18px; }
+  .plano-sinal { margin-bottom: 8px; }
+  .plano-velocidade { font-size: 2.8rem; }
+  .card-plano.mesh .plano-velocidade { font-size: 2.2rem; }
+  .plano-velocidade span { font-size: 1rem; }
+  .plano-tipo { margin-bottom: 8px; }
+  .plano-usos span { width: 28px; height: 28px; font-size: 0.72rem; }
+  .plano-divider { margin: 10px 0; }
+
+  /* Como funciona */
+  .passos-grid { gap: 20px; }
+  .passo-icone { width: 54px; height: 54px; font-size: 1.15rem; margin-bottom: 12px; }
+  .passos-fibra { top: 27px; bottom: 27px; }
+  #como-funciona .cep-box { margin-top: 32px; }
+  .cep-texto strong { font-size: 0.95rem; }
+
+  .contato-status { font-size: 0.78rem; }
+}
